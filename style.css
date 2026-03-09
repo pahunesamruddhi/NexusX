@@ -1102,8 +1102,8 @@ button {
 }
 
 .comp-structure .comp-icon {
-  background: rgba(242, 124, 44, 0.2);
-  color: var(--orange);
+  background: var(--orange);
+  color: var(--white);
 }
 
 .comp-structure .comp-row {
