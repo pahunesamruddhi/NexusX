@@ -143,6 +143,11 @@ button {
   letter-spacing: -0.02em;
 }
 
+.core-challenge {
+  line-height: 1.2;
+  margin-top: 16px;
+}
+
 .t-statement strong {
   font-weight: 700;
   color: var(--navy);
@@ -280,6 +285,17 @@ button {
   transform: scale(1);
 }
 
+/* Base structural classes */
+.reach-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.reach-header .t-headline {
+  margin-top: 16px;
+}
+
 /* Draw line */
 .line-draw {
   stroke-dasharray: 1000;
@@ -381,6 +397,19 @@ button {
 .mobile-overlay.open {
   opacity: 1;
   pointer-events: all;
+}
+
+/* Animated Hamburger */
+.nav-hamburger.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav-hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-hamburger.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 .mobile-overlay .nav-link {
@@ -586,9 +615,42 @@ button {
 }
 
 /* ========================================
+   GLOBAL REACH
+   ======================================== */
+.global-reach {
+  background: var(--white);
+  padding: 100px 0;
+}
+
+.reach-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 70px;
+  text-align: center;
+}
+
+.reach-number {
+  font-size: 54px;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.reach-number span {
+  color: var(--orange);
+}
+
+.reach-label {
+  margin-top: 10px;
+  font-size: 16px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* ========================================
    PROBLEM — Asymmetric Editorial
    ======================================== */
-.problem-grid {
+.problem-editorial-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 80px;
@@ -608,32 +670,20 @@ button {
   margin-bottom: 24px;
 }
 
-.problem-items {
+.problem-list {
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: 32px;
 }
 
 .problem-item {
-  padding: 40px 0;
   border-bottom: 1px solid var(--card-border);
+  padding-bottom: 24px;
   transition: all 0.4s var(--ease);
 }
 
-.problem-item:first-child {
-  border-top: 1px solid var(--card-border);
-}
-
-.problem-num {
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--orange);
-  letter-spacing: 0.06em;
-  margin-bottom: 12px;
-}
-
 .problem-item-title {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 700;
   color: var(--navy);
   margin-bottom: 8px;
@@ -644,15 +694,10 @@ button {
   font-size: 16px;
   color: var(--text-muted);
   line-height: 1.6;
-  max-width: 420px;
 }
 
 .problem-item:hover {
-  padding-left: 20px;
-}
-
-.problem-item:hover .problem-num {
-  transform: translateX(0);
+  padding-left: 10px;
 }
 
 /* ========================================
@@ -679,6 +724,12 @@ button {
 .model-section .wrap {
   position: relative;
   z-index: 1;
+}
+
+.model-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .model-headline {
@@ -950,6 +1001,14 @@ button {
 /* ========================================
    PROCESS — McKinsey Editorial Style
    ======================================== */
+.framework-header {
+  max-width: 640px;
+}
+
+.framework-headline {
+  margin-bottom: 16px;
+}
+
 .process-list {
   margin-top: 64px;
   counter-reset: step;
@@ -1007,6 +1066,16 @@ button {
 /* ========================================
    COMPARISON — Conceptual (Chaos vs Structure)
    ======================================== */
+.comp-header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.comp-headline {
+  margin-bottom: 16px;
+}
+
 .comparison-split {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1147,6 +1216,10 @@ button {
 }
 
 /* Credentials moved to header */
+.team-intro {
+  margin-bottom: 32px;
+}
+
 .team-credentials-top {
   display: flex;
   gap: 40px;
@@ -1251,6 +1324,21 @@ button {
 /* ========================================
    CTA — Full Editorial Width
    ======================================== */
+.cta-wrap {
+  text-align: center;
+}
+
+.cta-title {
+  color: var(--navy);
+  margin-bottom: 24px;
+}
+
+.cta-desc {
+  max-width: 600px;
+  margin: 0 auto 40px;
+  color: var(--text-muted);
+}
+
 .cta {
   background: var(--navy);
   color: var(--white);
@@ -1325,6 +1413,10 @@ button {
   max-width: 480px;
 }
 
+.contact-title {
+  margin-bottom: 24px;
+}
+
 .contact-cards {
   display: flex;
   flex-direction: column;
@@ -1373,6 +1465,17 @@ button {
 
 .contact-card-link:last-child {
   margin-bottom: 0;
+}
+
+.contact-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.contact-row.borderless {
+  margin-bottom: 0px;
 }
 
 /* ========================================
@@ -1443,6 +1546,13 @@ button {
   color: rgba(255, 255, 255, 0.45);
 }
 
+.footer-location-note {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.6);
+  padding: 5px 0;
+  display: block;
+}
+
 .footer-positioning-dot {
   width: 4px;
   height: 4px;
@@ -1463,23 +1573,20 @@ button {
     display: none;
   }
 
-  .problem-grid {
+  .problem-editorial-grid {
     grid-template-columns: 1fr;
     gap: 48px;
   }
 
-  .problem-left {
-    position: static;
-  }
-
   .model-diagram {
+    display: flex;
     flex-direction: column;
     gap: 16px;
   }
 
   .model-flow {
-    flex-direction: row;
-    padding: 8px 0;
+    flex-direction: column;
+    padding: 16px 0;
   }
 
   .model-flow-line {
@@ -1584,75 +1691,6 @@ button {
     align-items: center;
   }
 
-  .form-row {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 480px) {
-  .t-display {
-    font-size: 40px;
-  }
-
-  .t-headline {
-    font-size: 32px;
-  }
-
-  .t-statement {
-    font-size: 24px;
-  }
-
-  .hero-actions {
-    flex-direction: column;
-  }
-}
-
-/* ========================================
-   HERO POSITIONING LINE
-   ======================================== */
-.hero-positioning {
-  font-size: 22px;
-  font-weight: 500;
-  margin-top: 18px;
-  margin-bottom: 20px;
-  color: rgba(255, 255, 255, 0.85);
-  letter-spacing: 0.2px;
-}
-
-/* ========================================
-   GLOBAL REACH SECTION
-   ======================================== */
-.global-reach {
-  background: var(--white);
-  padding: 100px 0;
-}
-
-.reach-stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-  margin-top: 70px;
-  text-align: center;
-}
-
-.reach-number {
-  font-size: 54px;
-  font-weight: 700;
-  color: var(--navy);
-}
-
-.reach-number span {
-  color: var(--orange);
-}
-
-.reach-label {
-  margin-top: 10px;
-  font-size: 16px;
-  color: var(--text-muted);
-  line-height: 1.5;
-}
-
-@media (max-width: 768px) {
   .reach-stats {
     grid-template-columns: 1fr;
     gap: 32px;
@@ -1660,5 +1698,52 @@ button {
 
   .hero-positioning {
     font-size: 18px;
+  }
+
+  .sec {
+    padding: 80px 0;
+  }
+
+  .t-display {
+    font-size: clamp(40px, 10vw, 52px);
+  }
+
+  .t-headline {
+    font-size: clamp(32px, 8vw, 40px);
+  }
+
+  .t-subhead {
+    font-size: clamp(24px, 6vw, 28px);
+  }
+
+  .t-statement {
+    font-size: clamp(24px, 5vw, 32px);
+  }
+}
+
+@media (max-width: 480px) {
+  .t-display {
+    font-size: 32px;
+  }
+
+  .t-headline {
+    font-size: 28px;
+  }
+
+  .t-statement {
+    font-size: 20px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .model-feature {
+    padding-right: 0;
   }
 }

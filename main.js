@@ -334,8 +334,14 @@ function initMobileMenu() {
   if (!hamburger || !mobileMenu) return;
 
   hamburger.addEventListener('click', () => {
-    mobileMenu.classList.add('open');
-    document.body.style.overflow = 'hidden';
+    const isOpen = mobileMenu.classList.contains('open');
+    if (isOpen) {
+      closeMobile();
+    } else {
+      mobileMenu.classList.add('open');
+      hamburger.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
   });
 
   mobileClose?.addEventListener('click', closeMobile);
@@ -343,8 +349,10 @@ function initMobileMenu() {
 
 function closeMobile() {
   const mobileMenu = document.getElementById('mobileMenu');
+  const hamburger = document.getElementById('hamburger');
   if (mobileMenu) {
     mobileMenu.classList.remove('open');
+    hamburger?.classList.remove('open');
     document.body.style.overflow = '';
   }
 }
