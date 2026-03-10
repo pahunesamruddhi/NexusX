@@ -1309,19 +1309,16 @@ button {
   box-shadow: var(--shadow-lg);
 }
 
-/* Reduced portrait dominance: emphasis on experience */
+/* Uniform square photos — all source images are 800×800 */
 .team-photo {
   width: 100%;
-  height: 280px;
+  aspect-ratio: 1;
   object-fit: cover;
-  object-position: center 15%;
+  object-position: center 20%;
+  background: var(--light-gray, #f5f5f5);
   filter: grayscale(0.2) contrast(1.05);
   transition: filter 0.4s var(--ease);
-}
-
-.team-photo.photo-vinay,
-.team-photo.photo-rahul {
-  object-position: center 15%;
+  display: block;
 }
 
 .team-card:hover .team-photo {
