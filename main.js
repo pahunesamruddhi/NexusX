@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
   initScrollAnimations();
   initHeroCanvas();
-  initModelDiagram();
+
   initModelCanvas();
   initMobileMenu();
   initSmoothScroll();
@@ -376,28 +376,6 @@ function initSmoothScroll() {
   });
 }
 
-
-/* === Model Diagram — Sequential Reveal === */
-function initModelDiagram() {
-  const modelItems = document.querySelectorAll('.model-anim');
-  if (!modelItems.length) return;
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        // Trigger all items — CSS handles staggered delays
-        modelItems.forEach(item => item.classList.add('model-visible'));
-        observer.disconnect();
-      }
-    });
-  }, {
-    threshold: 0.2,
-    rootMargin: '0px 0px -80px 0px'
-  });
-
-  // Observe the first model-anim item
-  observer.observe(modelItems[0]);
-}
 
 /* === Model Background Canvas — Subtle Network === */
 function initModelCanvas() {
