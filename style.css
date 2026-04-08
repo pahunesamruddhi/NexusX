@@ -334,6 +334,10 @@ button {
   margin: 0 auto;
 }
 
+.reach-header .t-headline {
+  text-align: center;
+}
+
 /* Draw line */
 .line-draw {
   stroke-dasharray: 1000;
@@ -654,6 +658,7 @@ button {
 
 .insight .t-statement {
   color: var(--white);
+  text-align: center;
 }
 
 .insight .t-statement strong {
@@ -1185,6 +1190,10 @@ button {
   margin: 0 auto;
 }
 
+.industries-left .t-headline {
+  text-align: center;
+}
+
 .industries-left .t-body {
   color: rgba(255, 255, 255, 0.6);
   max-width: 500px;
@@ -1326,6 +1335,10 @@ button {
   text-align: center;
   max-width: 640px;
   margin: 0 auto;
+}
+
+.comp-header .t-headline {
+  text-align: center;
 }
 
 .comparison-split {
