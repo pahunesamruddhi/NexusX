@@ -732,6 +732,118 @@ button {
 }
 
 /* ========================================
+   DELIVERY — What We Deliver
+   ======================================== */
+.delivery-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.delivery-header .t-label {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.delivery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.delivery-item {
+  padding: 0;
+  border: none;
+  background: transparent;
+  transition: all 0.4s var(--ease);
+  text-align: center;
+}
+
+.delivery-icon {
+  font-size: 56px;
+  font-weight: 700;
+  color: var(--orange);
+  margin-bottom: 24px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.delivery-item-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+.delivery-item-desc {
+  font-size: 16px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+/* ========================================
+   APPROACH — Our Approach to Global Expansion
+   ======================================== */
+.approach-section {
+  background: var(--off-white);
+  border-top: 1px solid var(--card-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.approach-section .wrap {
+  position: relative;
+  z-index: 2;
+}
+
+.approach-container {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.approach-content .t-label {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.approach-headline {
+  font-size: clamp(32px, 5vw, 48px);
+  margin-bottom: 3rem;
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+.approach-body {
+  text-align: center;
+}
+
+.approach-main {
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.approach-emphasis {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1.7;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ========================================
    MODEL — System Architecture Diagram
    ======================================== */
 .model-section {
@@ -1682,6 +1794,24 @@ button {
 
   .industry-list {
     grid-template-columns: 1fr;
+  }
+
+  .delivery-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .delivery-item-desc {
+    max-width: none;
+  }
+
+  .approach-headline {
+    font-size: 32px;
+  }
+
+  .approach-main,
+  .approach-emphasis {
+    font-size: 16px;
   }
 
   .process-num {
