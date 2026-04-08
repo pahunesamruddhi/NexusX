@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initModelCanvas();
   initMobileMenu();
   initSmoothScroll();
+  initStatCounters();
 });
 
 /* === Navbar === */
@@ -426,4 +427,52 @@ function initModelCanvas() {
 
   draw();
   window.addEventListener('resize', () => { resize(); draw(); });
+}
+
+/* === Stat Counter Animation === */
+function initStatCounters() {
+  const statElements = document.querySelectorAll('[data-target]');
+
+  if (statElements.length === 0) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const element = entry.target;
+        const target = parseInt(element.getAttribute('data-target'), 10);
+
+        if (!isNaN(target)) {
+          animateCounter(element, target);
+          observer.unobserve(element);
+        }
+      }
+    });
+  }, { threshold: 0.5 });
+
+  statElements.forEach(el => observer.observe(el));
+}
+
+function animateCounter(element, target) {
+  const duration = 1500; // 1.5 seconds
+  const start = Date.now();
+
+  const animate = () => {
+    const elapsed = Date.now() - start;
+    const progress = Math.min(elapsed / duration, 1);
+
+    // Easing function (ease-out)
+    const easeProgress = 1 - Math.pow(1 - progress, 3);
+
+    const current = Math.floor(easeProgress * target);
+    element.textContent = current + (element.querySelector('span') ? '' : '+');
+
+    if (progress < 1) {
+      requestAnimationFrame(animate);
+    } else {
+      // Ensure final value is displayed
+      element.innerHTML = target + '<span>+</span>';
+    }
+  };
+
+  requestAnimationFrame(animate);
 }
