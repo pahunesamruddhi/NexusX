@@ -637,6 +637,12 @@ button {
   text-align: center;
 }
 
+.insight-inner .t-label {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
 .insight-quote {
   position: relative;
   padding: 0 20px;
@@ -893,6 +899,10 @@ button {
 .approach-container {
   max-width: 900px;
   margin: 0 auto;
+  text-align: center;
+}
+
+.approach-content {
   text-align: center;
 }
 
@@ -1186,8 +1196,12 @@ button {
 
 .industries-left {
   text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
+}
+
+.industries-left .t-label {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .industries-left .t-headline {
