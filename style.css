@@ -334,6 +334,12 @@ button {
   margin: 0 auto;
 }
 
+.reach-header .t-label {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
 .reach-header .t-headline {
   text-align: center;
 }
@@ -907,7 +913,9 @@ button {
 }
 
 .approach-content .t-label {
-  display: block;
+  display: flex;
+  justify-content: center;
+  width: 100%;
   margin-bottom: 1rem;
 }
 
@@ -1349,6 +1357,12 @@ button {
   text-align: center;
   max-width: 640px;
   margin: 0 auto;
+}
+
+.comp-header .t-label {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .comp-header .t-headline {
