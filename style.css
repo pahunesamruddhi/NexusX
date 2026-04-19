@@ -573,7 +573,7 @@ button {
   line-height: 1.5;
   color: var(--white);
   margin: 0 auto 48px;
-  max-width: 680px;
+  max-width: 900px;
   text-align: center;
   font-weight: 400;
 }
@@ -936,7 +936,7 @@ button {
   line-height: 1.8;
   color: var(--text-secondary);
   margin-bottom: 2rem;
-  max-width: 700px;
+  max-width: 560px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -1480,6 +1480,16 @@ button {
 
 .comp-structure .comp-row span {
   color: rgba(255, 255, 255, 0.9);
+}
+
+.comp-subheading {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-top: 48px;
+  margin-bottom: 24px;
+  letter-spacing: -0.01em;
 }
 
 .comp-bottom-note {
