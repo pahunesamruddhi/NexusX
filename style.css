@@ -1508,15 +1508,14 @@ button {
    TEAM — Global Advisors / Operators
    ======================================== */
 .team-header {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: end;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
   margin-bottom: 64px;
 }
 
 .team-header-right {
-  max-width: 480px;
+  max-width: 100%;
 }
 
 /* Credentials moved to header */
@@ -1944,8 +1943,7 @@ button {
   }
 
   .team-header {
-    grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 16px;
   }
 
   .team-profiles {
