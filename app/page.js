@@ -9,7 +9,7 @@ export default function Home() {
   
   <nav className="nav" id="navbar">
     <div className="wrap">
-      <a href="#hero"><img src="assets/images/logo.png" alt="NexusX" className="nav-logo" /></a>
+      <a href="#hero"><img src="/assets/images/logo.png" alt="NexusX" className="nav-logo" /></a>
       <div className="nav-links" id="navLinks">
         <a href="#approach" className="nav-link">Approach</a>
         <a href="#industries" className="nav-link">Industries</a>
@@ -38,7 +38,7 @@ export default function Home() {
 
     
     <div className="hero-map-wrapper">
-      <img src="assets/images/world-map.svg" alt="Global Trade and Market Expansion Map" className="hero-world-map" />
+      <img src="/assets/images/world-map.svg" alt="Global Trade and Market Expansion Map" className="hero-world-map" />
     </div>
 
     
@@ -302,7 +302,7 @@ export default function Home() {
       <div className="team-profiles">
         
         <div className="team-card anim anim-d1">
-          <img src="assets/images/umakant.png?v=3" alt="Umakant Potdukhe" className="team-photo photo-umakant" />
+          <img src="/assets/images/umakant.png?v=3" alt="Umakant Potdukhe" className="team-photo photo-umakant" />
           <div className="team-info">
             <h3 className="team-name">Umakant Potdukhe</h3>
             <p className="team-title">Director</p>
@@ -314,7 +314,7 @@ export default function Home() {
         </div>
         
         <div className="team-card anim anim-d2">
-          <img src="assets/images/vinay.png?v=3" alt="Vinay Jagwani" className="team-photo photo-vinay" />
+          <img src="/assets/images/vinay.png?v=3" alt="Vinay Jagwani" className="team-photo photo-vinay" />
           <div className="team-info">
             <h3 className="team-name">Vinay Jagwani</h3>
             <p className="team-title">Director</p>
@@ -326,7 +326,7 @@ export default function Home() {
         </div>
         
         <div className="team-card anim anim-d3">
-          <img src="assets/images/rahul.png?v=3" alt="Rahul Jagwani" className="team-photo photo-rahul" />
+          <img src="/assets/images/rahul.png?v=3" alt="Rahul Jagwani" className="team-photo photo-rahul" />
           <div className="team-info">
             <h3 className="team-name">Rahul Jagwani</h3>
             <p className="team-title">Director</p>
@@ -408,7 +408,7 @@ export default function Home() {
     <div className="wrap">
       <div className="footer-top">
         <div className="footer-brand">
-          <img src="assets/images/logo.png" alt="NexusX" className="footer-logo" />
+          <img src="/assets/images/logo.png" alt="NexusX" className="footer-logo" />
           <p>Structured international market presence for manufacturers. Defined by transparency. Anchored in trust. Delivered with structure.</p>
         </div>
         <div className="footer-col">
