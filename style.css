@@ -542,7 +542,7 @@ button {
 .hero-content {
   position: relative;
   z-index: 3;
-  max-width: 760px;
+  max-width: 1000px;
   width: 100%;
 }
 
