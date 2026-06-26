@@ -24,6 +24,9 @@ export const metadata = {
     description: "Structured international market presence for manufacturers. Build credible, consistent global representation without complexity.",
     images: ["https://www.nexusxglobal.com/assets/images/logo.png"],
   },
+  verification: {
+    google: "-7JocjEB4TPrLRSSrx5X1N2ZYyElcaZEiU4rRh_26Qc",
+  },
 };
 
 export default function RootLayout({ children }) {
