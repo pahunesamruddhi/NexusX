@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
   initSmoothScroll();
   initStatCounters();
+  initFaqAccordion();
 });
 
 /* === Navbar === */
@@ -475,4 +476,85 @@ function animateCounter(element, target) {
   };
 
   requestAnimationFrame(animate);
+}
+
+/* === FAQ Accordion — Smooth Expand / Collapse === */
+function initFaqAccordion() {
+  const items = document.querySelectorAll('.faq-item');
+  if (!items.length) return;
+
+  items.forEach(details => {
+    const summary = details.querySelector('summary');
+    const answer = details.querySelector('.faq-answer');
+    const inner = details.querySelector('.faq-answer-inner');
+    if (!summary || !answer || !inner) return;
+
+    let isAnimating = false;
+
+    summary.addEventListener('click', e => {
+      e.preventDefault();
+      if (isAnimating) return;
+
+      if (details.open) {
+        // — Close —
+        isAnimating = true;
+        const height = inner.offsetHeight;
+        answer.style.maxHeight = height + 'px';
+        answer.classList.remove('faq-open');
+
+        requestAnimationFrame(() => {
+          answer.classList.add('faq-closing');
+          answer.style.maxHeight = '0px';
+        });
+
+        const onEnd = () => {
+          answer.removeEventListener('transitionend', onEnd);
+          details.open = false;
+          answer.classList.remove('faq-closing');
+          answer.style.maxHeight = '';
+          isAnimating = false;
+        };
+        answer.addEventListener('transitionend', onEnd, { once: true });
+
+        // Safety timeout in case transitionend doesn't fire
+        setTimeout(() => {
+          if (isAnimating) {
+            details.open = false;
+            answer.classList.remove('faq-closing');
+            answer.style.maxHeight = '';
+            isAnimating = false;
+          }
+        }, 600);
+      } else {
+        // — Open —
+        isAnimating = true;
+        details.open = true;
+
+        requestAnimationFrame(() => {
+          const height = inner.offsetHeight;
+          answer.style.maxHeight = '0px';
+          answer.classList.add('faq-open');
+
+          requestAnimationFrame(() => {
+            answer.style.maxHeight = height + 'px';
+          });
+        });
+
+        const onEnd = () => {
+          answer.removeEventListener('transitionend', onEnd);
+          answer.style.maxHeight = 'none';
+          isAnimating = false;
+        };
+        answer.addEventListener('transitionend', onEnd, { once: true });
+
+        // Safety timeout
+        setTimeout(() => {
+          if (isAnimating) {
+            answer.style.maxHeight = 'none';
+            isAnimating = false;
+          }
+        }, 600);
+      }
+    });
+  });
 }

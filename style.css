@@ -2140,7 +2140,7 @@ button {
   border: 1px solid var(--card-border);
   border-radius: 12px;
   margin-bottom: 16px;
-  transition: all 0.4s var(--ease);
+  transition: box-shadow 0.4s var(--ease), border-color 0.4s var(--ease), transform 0.4s var(--ease);
   counter-increment: faq-counter;
   overflow: hidden;
 }
@@ -2158,6 +2158,7 @@ button {
 .faq-item[open] {
   box-shadow: var(--shadow-lg);
   border-color: rgba(242, 124, 44, 0.2);
+  transform: translateY(0);
 }
 
 .faq-item summary {
@@ -2167,13 +2168,14 @@ button {
   color: var(--navy);
   list-style: none;
   position: relative;
-  padding: 24px 56px 24px 28px;
+  padding: 24px 64px 24px 28px;
   line-height: 1.5;
   letter-spacing: -0.01em;
   display: flex;
   align-items: baseline;
   gap: 16px;
   transition: color 0.3s var(--ease);
+  user-select: none;
 }
 
 .faq-item summary::-webkit-details-marker {
@@ -2190,77 +2192,117 @@ button {
   min-width: 22px;
 }
 
-.faq-item summary::after {
-  content: "";
+/* — Animated + / × icon — */
+.faq-icon {
   position: absolute;
   right: 24px;
   top: 50%;
   transform: translateY(-50%);
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   background: var(--off-white);
   border: 1px solid var(--card-border);
-  transition: all 0.35s var(--ease);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M6 2.5v7M2.5 6h7' stroke='%23F27C2C' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: center;
+  transition: background 0.4s var(--ease), border-color 0.4s var(--ease), transform 0.4s var(--ease);
+  flex-shrink: 0;
 }
 
-.faq-item[open] summary::after {
+.faq-icon::before,
+.faq-icon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: var(--orange);
+  border-radius: 1px;
+  transition: background 0.4s var(--ease), transform 0.4s var(--ease), opacity 0.3s var(--ease);
+}
+
+/* Horizontal bar */
+.faq-icon::before {
+  width: 12px;
+  height: 2px;
+  transform: translate(-50%, -50%);
+}
+
+/* Vertical bar */
+.faq-icon::after {
+  width: 2px;
+  height: 12px;
+  transform: translate(-50%, -50%);
+}
+
+/* Open state — morph + to × */
+.faq-item[open] .faq-icon {
   background: var(--orange);
   border-color: var(--orange);
   transform: translateY(-50%) rotate(45deg);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M6 2.5v7M2.5 6h7' stroke='%23ffffff' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: center;
 }
 
-.faq-item[open] summary {
-  color: var(--navy);
+.faq-item[open] .faq-icon::before,
+.faq-item[open] .faq-icon::after {
+  background: var(--white);
 }
 
+/* — Smooth answer expand/collapse — */
 .faq-answer {
-  padding: 0 28px 28px 66px;
-  animation: faqSlideDown 0.4s var(--ease) forwards;
+  overflow: hidden;
+  transition: max-height 0.45s var(--ease), opacity 0.35s var(--ease);
+  max-height: 0;
+  opacity: 0;
 }
 
-.faq-answer p {
+.faq-item[open] .faq-answer {
+  opacity: 1;
+}
+
+/* JS sets the exact max-height; this is the fallback */
+.faq-answer.faq-open {
+  opacity: 1;
+}
+
+.faq-answer.faq-closing {
+  max-height: 0 !important;
+  opacity: 0;
+}
+
+.faq-answer-inner {
+  padding: 0 28px 28px 66px;
+}
+
+.faq-answer-inner p {
   font-size: 16px;
   color: var(--text-secondary);
   line-height: 1.75;
   margin: 0;
 }
 
-@keyframes faqSlideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 @media (max-width: 768px) {
   .faq-item summary {
     font-size: 15px;
-    padding: 20px 48px 20px 20px;
+    padding: 20px 52px 20px 20px;
     gap: 12px;
   }
 
-  .faq-item summary::after {
+  .faq-icon {
     right: 16px;
-    width: 24px;
-    height: 24px;
+    width: 26px;
+    height: 26px;
   }
 
-  .faq-answer {
+  .faq-icon::before {
+    width: 10px;
+  }
+
+  .faq-icon::after {
+    height: 10px;
+  }
+
+  .faq-answer-inner {
     padding: 0 20px 20px 52px;
   }
 
-  .faq-answer p {
+  .faq-answer-inner p {
     font-size: 15px;
   }
 }
@@ -2268,11 +2310,12 @@ button {
 @media (max-width: 480px) {
   .faq-item summary {
     font-size: 14px;
-    padding: 16px 44px 16px 16px;
+    padding: 16px 48px 16px 16px;
     gap: 10px;
   }
 
-  .faq-answer {
+  .faq-answer-inner {
     padding: 0 16px 16px 44px;
   }
-}
+}
+
